@@ -66,8 +66,8 @@ Esquema components de l'aplicació:
 ![](./README_FILES/REACTTUBE3.png)
 
 Esquema amb el contingut de cada component:
+![](./README_FILES/REACTTUBE4.png)
 
-###
 
 Diagrama de jerarquia de components: a realitzar per l'alumne
 
