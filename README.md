@@ -16,12 +16,9 @@ Abans de començar convé llegir per damunt la documentació de la API de YouTub
 
 En aquesta aplicació es podran buscar vídeos, hi haurà gestió de favorits, historial de cerques i detall de vídeo amb els seus vídeos relacionats:
 
-![](N:\ESCRIPTORI\S9\s9-final-tube\README_FILES\REACTTUBE.png)
+![](./README_FILES/REACTTUBE.png)
 
 ## Nivell 1
-
-### 
-
 <u>Abast d'aquest nivell</u>
 
 Ens trobem en la primera fase del projecte, on muntarem la base, carregant vídeos de la API de YouTube i mostrant-los per pantalla.
@@ -30,9 +27,9 @@ Més endavant, en la fase 2, modificarem la navegació de l'aplicació iimplemen
 
 Aquest és l'aspecte que tindrà la nostra web una web que finalitzarem aquesta primera fase:
 
-![](N:\ESCRIPTORI\S9\s9-final-tube\README_FILES\REACTTUBE2.png)
+![](./README_FILES/REACTTUBE2.png)
 
-### 
+###
 
 <u>Context</u>
 
@@ -66,11 +63,11 @@ projecte així com evitar possibles confusions.
 
 Esquema components de l'aplicació:
 
-![](N:\ESCRIPTORI\S9\s9-final-tube\README_FILES\REACTTUBE3.png)
+![](./README_FILES/REACTTUBE3.png)
 
 Esquema amb el contingut de cada component:
 
-### 
+###
 
 Diagrama de jerarquia de components: a realitzar per l'alumne
 
@@ -154,7 +151,7 @@ El contingut d'aquest mètode és l'anomenada a la API de youtube i el seu guard
 
 és modificar l'estat.
 
-### 
+###
 
 **Code Snippet 1**. STATE:
 
@@ -306,7 +303,7 @@ A més d'aquesta pantalla principal, **et demanen que en clicar sobre un vídeo
 
 Finalment, el teu cap et demana que si és possible **implementis un menú lateral que porti a les pantalles de l'aplicació** (caldrà crear aquestes pantalles, com a historial, favorits, vídeos guardats… ), ja que en la pantalla principal només es mostra una petita part de cada funcionalitat, però és necessari crear una pàgina completa per a cadascuna d'elles (veuràs que reutilitzant els components de la pantalla principal i el routing serà molt senzill i ràpid ampliar l'aplicació).
 
-<u>Planificació</u>  
+<u>Planificació</u>
 
 El millor punt de partida per a començar a organitzar el treball, són les notes preses en la reunió (és molt recomanable prendre notes de totes les reunions, guardant-lo en el núvol, bé sigui google docs, evernote o similar, posant la data i assistents).
 
@@ -364,7 +361,7 @@ A més de realitzar l'esquema de navegació de l'aplicació, és convenient fer 
 
 L'esquema amb la navegació de l'aplicació i els components que compondran cada pantalla és el següent (desenvolupat amb octopus.do, molt ràpid prototipar aplicacions):
 
-![](N:\ESCRIPTORI\S9\s9-final-tube\README_FILES\REACTTUBE5.png)
+![](./README_FILES/REACTTUBE5.png)
 
 Ara que hem plasmats els requeriments en un esquema, queda molt més clar tot el treball que hem de realitzar.
 
@@ -400,11 +397,11 @@ A aquesta pantalla es podrà accedir prement sobre qualsevol vídeo de l'aplicac
 
 Per a poder visualitzar totes les funcionalitats en una mateixa pantalla, i millorar l'experiència d'usuari, desenvoluparem un dashboard molt complet, on es motrará en un llistat els vídeos recomanats o els vídeos oposats quan es realitzi una cerca, el llistat que mostri els últims termes de cerca i finalment els vídeos guardats com a favorits:
 
-![](N:\ESCRIPTORI\S9\s9-final-tube\README_FILES\REACTTUBE7.png)
+![](./README_FILES/REACTTUBE7.png)
 
 Detall d'un element de l'historial de cerca:
 
-![](N:\ESCRIPTORI\S9\s9-final-tube\README_FILES\REACTTUBE8.png)
+![](./README_FILES/REACTTUBE8.png)
 
 Recurs d'interès: react-moment, https://www.npmjs.com/package/react-moment. Ens facilitarà el treball de calcular fa quant es va realitzar la cerca. Es tracta de comparar el moment en què es va realitzar aquesta cerca (aquesta dada l'haurem d'haver guardat en localStorage) amb el moment actual. Com es comenta en la imatge, es podrà usar <Moment fromNow> per a obtenir aquest valor fàcilment.
 
