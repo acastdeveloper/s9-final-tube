@@ -18,7 +18,10 @@ En aquesta aplicació es podran buscar vídeos, hi haurà gestió de favorits, h
 
 ![](./README_FILES/REACTTUBE.png)
 
+---
+
 ## Nivell 1
+
 <u>Abast d'aquest nivell</u>
 
 Ens trobem en la primera fase del projecte, on muntarem la base, carregant vídeos de la API de YouTube i mostrant-los per pantalla.
@@ -29,7 +32,7 @@ Aquest és l'aspecte que tindrà la nostra web una web que finalitzarem aquesta 
 
 ![](./README_FILES/REACTTUBE2.png)
 
-###
+### 
 
 <u>Context</u>
 
@@ -68,7 +71,6 @@ Esquema components de l'aplicació:
 Esquema amb el contingut de cada component:
 ![](./README_FILES/REACTTUBE4.png)
 
-
 Diagrama de jerarquia de components: a realitzar per l'alumne
 
 Una vegada entès el projecte i el context en el qual s'emmarca, i tenint clar els components que cal
@@ -83,21 +85,21 @@ no hem seleccionat cap, la part esquerra de la pantalla apareixerà en blanc, pe
 
 mostrar el detall del primer vídeo del llistat.
 
+---
+
 ### - Exercici 1. Crear la base del projecte
 
 Nom del commit: «initialCommit»
 
 **Descripció**: crear l'estructura bàsica del projecte amb els paquets que creguem que utilitzarem.
 
-**Tip 1**: és convenient usar el CLI create-react-app per a aquest propòsit. A més d'estalviar-nos temps,
+**Tip 1**: és convenient usar el CLI create-react-app per a aquest propòsit. A més d'estalviar-nos temps, crearà una estrutura de directoris estàndard.
 
-crearà una estrutura de directoris estàndard.
+**Tip 2**: és bon moment per a instal·lar els paquets que vagi a usar en el projecte. Per exemple, per a facilitar-te la crida de les APIs de recomana intalar Axios.
 
-**Tip 2**: és bon moment per a instal·lar els paquets que vagi a usar en el projecte. Per exemple, per a
+**Tip 3**: També s'ha de pensar incloure una llibreria UI per a facilitar-te la creació de la interficie.
 
-facilitar-te la crida de les APIs de recomana intalar Axios.
-
-**Tip 3**: També s'ha de pensar incloure una llibreria UI per a facilitar-te la creació de la interficie
+---
 
 ### - Exercici 2. Component App
 
@@ -151,67 +153,64 @@ El contingut d'aquest mètode és l'anomenada a la API de youtube i el seu guard
 
 és modificar l'estat.
 
-###
+
 
 **Code Snippet 1**. STATE:
 
+```json
 state =
-
 {
-
-    videos: [ ],
-
-    selectedVideo: null
-
+    videos: [ ],
+    selectedVideo: null
 }
+```
 
 **Code Snippet 2**. Crida a API youtube des de App.js quan es realiza una cerca:
 
+```jsx
 import youtube from '../apis/youtube';
 
 …
 
 handleSubmit = async (termFromSearchBar) => {
-
 ...
-
-    const response = await youtube.get('/search', {
-
-        params: {
-
-            q: termFromSearchBar
-
-        }
-
-    })
-
+    const response = await youtube.get('/search', {
+        params: {
+            q: termFromSearchBar
+        }
+    })
 …
 
 }
+```
 
 **Code Snippet 3**. Part del codi de apis/youtube.js:
 
+```jsx
 ...
 
 export default axios.create({
 
-    baseURL: ...,
+ baseURL: ...,
 
-    params: {
+ params: {
 
-        part: ... ,
+ part: ... ,
 
-        maxResults: ... ,
+ maxResults: ... ,
 
-       key: ...
+ key: ...
 
-        ...
+ ...
 
-    }
+ }
 
 })
 
 ...
+```
+
+---
 
 ### - Exercici 3. Component SearchBar
 
@@ -227,17 +226,23 @@ quan es realitza una cerca. Recorda handleSubmit és un mètode del component pa
 
 **Code Snippet** 1:
 
+```jsx
 <form onSubmit={this.handleSubmit} ...>
 
-    <div ...>
+    <div ...>
 
-        ...
+        ...
 
-        <input onChange={this.handleChange} value=..../>
+        <input onChange={this.handleChange} value=..../>
 
-    </div>
+    </div>
 
 </form>
+```
+
+</form>
+
+---
 
 ### - Exercici 4. Component VideoList
 
@@ -259,17 +264,21 @@ cosa caldrà passar per props un event al component videoItem.
 
 **Code Snippet 1**:
 
+```jsx
 const VideoList = ...
 
 ...
 
 const renderedVideos = videos.map((video) => {
 
-    return <VideoItem ...
+    return <VideoItem ...
 
-    ...
+    ...
 
 return <div ...> {renderedVideos} </div>
+```
+
+---
 
 ### - Exercici 5. Component VideoItem
 
@@ -287,11 +296,15 @@ Ja hauries de ser capaç de realitzar aquest component, sempre seguim el mateix 
 
 - Conté a altres components?
 
+---
+
 ### - Exercici 6. Component VideoDetail
 
 Nom del commit: «videoDetailComponent»
 
 **Descripció**: ja només queda implementar l'últim component. Recorda't que ha de contenir el títol i la descripció del vídeo.
+
+---
 
 ## Nivell 2
 
@@ -329,25 +342,23 @@ Ja tenim clar tot el que s'ha de programar, és el moment de dividir el treball 
 
 Tasques concretes a realitzar ordenades (més endavant es detallarà cada tasca):
 
-o Crear la pantalla de detall de vídeo, deixant en la pantalla principal únicament el llistat
+- Crear la pantalla de detall de vídeo, deixant en la pantalla principal únicament el llistat de vídeos oposats en realitzar una cerca.
 
-de vídeos oposats en realitzar una cerca.
+- Com en obrir la web encara no s'ha realitzat cap cerca, la pantalla apareix enblanc, mostrar vídeos recomanats quan l'usuari encara no ha realitzat una cerca.
 
-o Com en obrir la web encara no s'ha realitzat cap cerca, la pantalla apareix enblanc, mostrar vídeos recomanats quan l'usuari encara no ha realitzat una cerca.
+- Mostrar en la pantalla principal el llistat amb l'historial dels termes de cerca.
 
-o Mostrar en la pantalla principal el llistat amb l'historial dels termes de cerca.
+- Implementar el botó de “afegir a favorits”. Aquest botó es mostrarà en tots els vídeos de l'aplicació (en els vídeos del llistat de vídeos oposats, en el detall de vídeo i en els vídeos relacionats).
 
-o Implementar el botó de “afegir a favorits”. Aquest botó es mostrarà en tots els vídeos de l'aplicació (en els vídeos del llistat de vídeos oposats, en el detall de vídeo i en els vídeos relacionats).
+- Mostrar el llistat de vídeos favorits en la pantalla principal.
 
-o Mostrar el llistat de vídeos favorits en la pantalla principal.
+- Muntar les rutes de l'aplicació en el component principal.
 
-o Muntar les rutes de l'aplicació en el component principal.
+- Crear el menú lateral que portarà a les diferents pantalles.
 
-o Crear el menú lateral que portarà a les diferents pantalles.
+- Crear la pantalla d'historial.
 
-o Crear la pantalla d'historial.
-
-o Implementar la pantalla de favorits.
+- Implementar la pantalla de favorits.
 
 Ara seria convenient que a cada tasca li assignessis el temps estimat de realització, per a després comparar amb el temps real, podent fer una reflexió de per què no has trigat el que pensaves, la qual cosa t'ajudarà a millorar sabent què és el que et frena, a més d'aprendre a estimar millor les tasques.
 
@@ -371,7 +382,7 @@ Podem extreure diverses conclusions repassant l'esquema:
 
 - El component “videoList” és el que més es reutilitzar, res menys que 7 vegades.
 
-Informació addicional dels components
+##### Informació addicional dels components
 
 En aquesta fase del projecte, tindràs la llibertat per a crear els commits i branques de git que consideris oportunes, però insistir que programar és només el 50%,  l'altre 50% és:
 
@@ -380,6 +391,8 @@ En aquesta fase del projecte, tindràs la llibertat per a crear els commits i br
 - Tenir el **desenvolupament ben ordenat en commits** en una branca ben sincronitzada amb la de l'equip, per a evitar conflictes de codi (podem passar molt de temps resolent conflictes, Gitkraken és una eina que pot ajudar-nos)
 
 - Crear el **readme** amb les [instruccions](https://itacademy.barcelonactiva.cat/mod/forum/view.php?id=3578 "Instruccions") per a arrencar el projecte, funcionalitats… i realitzar la **documentació** de les funcionalitats.
+
+---
 
 ### - Exercici 7. Detall de video
 
@@ -393,6 +406,8 @@ A aquesta pantalla es podrà accedir prement sobre qualsevol vídeo de l'aplicac
 
 - Els vídeos relacionats. S'ha de consultar la documentació de la API de YouTube per a implementar la càrrega de vídeos relacionats.
 
+---
+
 ### - Exercici 8. Component principal
 
 Per a poder visualitzar totes les funcionalitats en una mateixa pantalla, i millorar l'experiència d'usuari, desenvoluparem un dashboard molt complet, on es motrará en un llistat els vídeos recomanats o els vídeos oposats quan es realitzi una cerca, el llistat que mostri els últims termes de cerca i finalment els vídeos guardats com a favorits:
@@ -404,6 +419,8 @@ Detall d'un element de l'historial de cerca:
 ![](./README_FILES/REACTTUBE8.png)
 
 Recurs d'interès: react-moment, https://www.npmjs.com/package/react-moment. Ens facilitarà el treball de calcular fa quant es va realitzar la cerca. Es tracta de comparar el moment en què es va realitzar aquesta cerca (aquesta dada l'haurem d'haver guardat en localStorage) amb el moment actual. Com es comenta en la imatge, es podrà usar <Moment fromNow> per a obtenir aquest valor fàcilment.
+
+---
 
 ## Nivell 3
 
